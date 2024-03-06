@@ -1,4 +1,4 @@
-require_relative 'enemy_names'
+require './modules/enemy_names'
 class Enemy
   # I made a module called enemy names and required it here.
   include Names
