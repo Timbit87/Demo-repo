@@ -32,7 +32,7 @@ def attack(attacker, defender)
   sleep(2)
 end
 
-#Same idea with offhand attack. Another instance method. 
+#Same idea with offhand attack. Another instance method.
 def offhand_attack(attacker, defender)
   puts "#{attacker.name} strikes #{defender.name} with their offhand #{attacker.weapon} for extra damage!\n"
   attacker.offhand_attack(defender)
@@ -86,7 +86,7 @@ def perform_combat(player, enemy, role)
   offhand_attack(player, enemy) if role == "Rogue"
   death_check(enemy, player)
 end
-arena.inspect
+
 
 enemies.each do |enemy|
   puts "Up now we have #{player_one.name} the #{role} (#{player_one.health} HP) vs. #{enemy.name}! (#{enemy.health} HP)"
