@@ -67,10 +67,16 @@ sleep(2)
 puts "Fight!!!!!"
 puts
 
+def win_reward(player_one)
+  player_one.health += 25 unless player_one.dead?
+  player_one.gain_xp unless player_one.dead?
+end
+
 def death_check(player_or_enemy, opponent)
   if player_or_enemy.dead?
-    puts "#{opponent.name} is the winner!"
+    puts "#{opponent.name} is the winner! 100XP gained XP:#{opponent.xp}"
     puts "*************************************"
+    win_reward(opponent) unless opponent.class == Enemy
     return true
   end
   return false
@@ -89,8 +95,10 @@ end
 
 
 enemies.each do |enemy|
-  puts "Up now we have #{player_one.name} the #{role} (#{player_one.health} HP) vs. #{enemy.name}! (#{enemy.health} HP)"
+  puts "Up now we have #{player_one.name} the #{role} (#{player_one.health} HP) (#{player_one.xp} XP) vs. #{enemy.name}! (#{enemy.health} HP)"
+  puts
   perform_combat(player_one, enemy, role) until player_one.dead? || enemy.dead?
-  player_one.health += 25
   break if player_one.dead?
 end
+
+

@@ -2,12 +2,13 @@
 
 class Character
   #accessor acts as getter and setter (read and write)
-  attr_accessor :weapon, :health
+  attr_accessor :weapon, :health, :xp
 
   def initialize(name, weapon)
     @name = name
     @weapon = weapon
-    @health = 100
+    @health = 200
+    @xp = 0
   end
 
   def name
@@ -34,5 +35,9 @@ class Character
   def crit_attack(character)
     hit_points = self.class.weapons[@weapon]
     character.take_damage(hit_points * 2)
+  end
+
+  def gain_xp
+    @xp += 100
   end
 end

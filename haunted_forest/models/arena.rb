@@ -9,7 +9,7 @@ class Arena
 
   def self.monsters
     monsters = []
-    rand(1..4).times { monsters << Enemy.new(Enemy.random_name, Enemy.weapons.keys.sample) }
+    rand(2..4).times { monsters << Enemy.new(Enemy.random_name, Enemy.weapons.keys.sample) }
     monsters
   end
 end
